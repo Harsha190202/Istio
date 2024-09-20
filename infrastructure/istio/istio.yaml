@@ -50,7 +50,7 @@ spec:
       selfHeal: true
   dependsOn:
     - name: istio-base
-      namespace: istio-system
+      namespace: argocd
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -77,7 +77,7 @@ spec:
       selfHeal: true
   dependsOn:
     - name: istiod
-      namespace: istio-system
+      namespace: argocd
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -104,4 +104,4 @@ spec:
       selfHeal: true
   dependsOn:
     - name: istiod
-      namespace: istio-system
+      namespace: argocd
