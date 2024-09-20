@@ -39,10 +39,8 @@ metadata:
   name: istio-ingress
   namespace: istio-ingress
 spec:
-  interval: 5m
+  interval: 10m
   timeout: 10m
-  maxRetries: 5
-  retryInterval: 1m
   dependsOn:
     - name: istio-base
       namespace: istio-system
@@ -56,4 +54,4 @@ spec:
         kind: HelmRepository
         name: istio
         namespace: istio-system
-      interval: 3m
+      interval: 5m
