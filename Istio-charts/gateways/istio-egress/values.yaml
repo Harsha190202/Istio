@@ -4,14 +4,14 @@ gateways:
   istio-egressgateway:
     name: istio-egressgateway
     ports:
-    - port: 80
-      targetPort: 8080
-      name: http2
-      protocol: TCP
-    - port: 443
-      name: https
-      targetPort: 8443
-      protocol: TCP
+      - port: 80
+        targetPort: 8080
+        name: http2
+        protocol: TCP
+      - port: 443
+        name: https
+        targetPort: 8443
+        protocol: TCP
 
     labels:
       app: istio-egressgateway
@@ -21,7 +21,7 @@ gateways:
     # replicaCount: 1
     rollingMaxSurge: 100%
     rollingMaxUnavailable: 25%
-    autoscaleEnabled: true
+    autoscaleEnabled: false
     autoscaleMin: 1
     autoscaleMax: 5
     resources:
@@ -39,12 +39,12 @@ gateways:
     type: ClusterIP # change to NodePort or LoadBalancer if need be
 
     secretVolumes:
-    - name: egressgateway-certs
-      secretName: istio-egressgateway-certs
-      mountPath: /etc/istio/egressgateway-certs
-    - name: egressgateway-ca-certs
-      secretName: istio-egressgateway-ca-certs
-      mountPath: /etc/istio/egressgateway-ca-certs
+      - name: egressgateway-certs
+        secretName: istio-egressgateway-certs
+        mountPath: /etc/istio/egressgateway-certs
+      - name: egressgateway-ca-certs
+        secretName: istio-egressgateway-ca-certs
+        mountPath: /etc/istio/egressgateway-ca-certs
 
     configVolumes: []
     additionalContainers: []
@@ -55,7 +55,8 @@ gateways:
 
     ### Advanced options ############
     # TODO: convert to real options, env should not be exposed
-    env: {}
+    env:
+      {}
       # Set this to "external" if and only if you want the egress gateway to
       # act as a transparent SNI gateway that routes mTLS/TLS traffic to
       # external services defined using service entries, where the service
