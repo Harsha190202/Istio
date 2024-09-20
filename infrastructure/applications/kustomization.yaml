@@ -4,3 +4,4 @@ resources:
   - ratings.yaml
   - products.yaml
   - bookinfo.yaml
+  - reviews.yaml
