@@ -16,7 +16,6 @@ spec:
     helm:
       valueFiles:
         - values.yaml
-  project: statefulsets
   syncPolicy:
     automated:
       prune: true
@@ -40,7 +39,6 @@ spec:
     helm:
       valueFiles:
         - values.yaml
-  project: statefulsets
   syncPolicy:
     automated:
       prune: true
@@ -64,7 +62,6 @@ spec:
     helm:
       valueFiles:
         - values.yaml
-  project: statefulsets
   syncPolicy:
     automated:
       prune: true
@@ -88,7 +85,6 @@ spec:
     helm:
       valueFiles:
         - values.yaml
-  project: statefulsets
   syncPolicy:
     automated:
       prune: true
