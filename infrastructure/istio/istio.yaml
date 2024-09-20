@@ -1,0 +1,95 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    notifications.argoproj.io/subscribe.teams: channelName
+  name: istio-base
+  namespace: argocd
+spec:
+  destination:
+    namespace: istio-system
+    server: "https://kubernetes.default.svc"
+  source:
+    path: Istio-charts/base/
+    repoURL: "https://github.com/Harsha190202/EKS.git"
+    targetRevision: main
+    helm:
+      valueFiles:
+        - values.yaml
+  project: statefulsets
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    notifications.argoproj.io/subscribe.teams: channelName
+  name: istiod
+  namespace: argocd
+spec:
+  destination:
+    namespace: istio-system
+    server: "https://kubernetes.default.svc"
+  source:
+    path: Istio-charts/istiod/
+    repoURL: "https://github.com/Harsha190202/EKS.git"
+    targetRevision: main
+    helm:
+      valueFiles:
+        - values.yaml
+  project: statefulsets
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    notifications.argoproj.io/subscribe.teams: channelName
+  name: istio-ingressgateway
+  namespace: argocd
+spec:
+  destination:
+    namespace: istio-system
+    server: "https://kubernetes.default.svc"
+  source:
+    path: Istio-charts/gateways/istio-ingress/
+    repoURL: "https://github.com/Harsha190202/EKS.git"
+    targetRevision: main
+    helm:
+      valueFiles:
+        - values.yaml
+  project: statefulsets
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    notifications.argoproj.io/subscribe.teams: channelName
+  name: istio-egressgateway
+  namespace: argocd
+spec:
+  destination:
+    namespace: istio-system
+    server: "https://kubernetes.default.svc"
+  source:
+    path: Istio-charts/gateways/istio-egress/
+    repoURL: "https://github.com/Harsha190202/EKS.git"
+    targetRevision: main
+    helm:
+      valueFiles:
+        - values.yaml
+  project: statefulsets
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
