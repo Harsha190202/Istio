@@ -11,7 +11,7 @@ spec:
     server: "https://kubernetes.default.svc"
   source:
     path: Istio-charts/base/
-    repoURL: "https://github.com/Harsha190202/EKS.git"
+    repoURL: "https://github.com/Harsha190202/Istio.git"
     targetRevision: main
     helm:
       valueFiles:
@@ -35,7 +35,7 @@ spec:
     server: "https://kubernetes.default.svc"
   source:
     path: Istio-charts/istiod/
-    repoURL: "https://github.com/Harsha190202/EKS.git"
+    repoURL: "https://github.com/Harsha190202/Istio.git"
     targetRevision: main
     helm:
       valueFiles:
@@ -59,7 +59,7 @@ spec:
     server: "https://kubernetes.default.svc"
   source:
     path: Istio-charts/gateways/istio-ingress/
-    repoURL: "https://github.com/Harsha190202/EKS.git"
+    repoURL: "https://github.com/Harsha190202/Istio.git"
     targetRevision: main
     helm:
       valueFiles:
@@ -83,7 +83,7 @@ spec:
     server: "https://kubernetes.default.svc"
   source:
     path: Istio-charts/gateways/istio-egress/
-    repoURL: "https://github.com/Harsha190202/EKS.git"
+    repoURL: "https://github.com/Harsha190202/Istio.git"
     targetRevision: main
     helm:
       valueFiles:
