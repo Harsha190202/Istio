@@ -21,9 +21,6 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  dependsOn:
-    - name: argocd
-      namespace: argocd
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -48,9 +45,6 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  dependsOn:
-    - name: istio-base
-      namespace: argocd
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -75,9 +69,6 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  dependsOn:
-    - name: istiod
-      namespace: argocd
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -102,6 +93,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  dependsOn:
-    - name: istiod
-      namespace: argocd
