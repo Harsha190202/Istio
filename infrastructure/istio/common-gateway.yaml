@@ -1,15 +1,15 @@
 apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
-  name: gateway
-  namespace: applications
+  name: common-gateway
+  namespace: default
 spec:
   selector:
     istio: ingressgateway
   servers:
-    - hosts:
-        - "*"
-      port:
-        name: http
+    - port:
         number: 80
+        name: http
         protocol: HTTP
+      hosts:
+        - "*"
